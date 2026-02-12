@@ -14,9 +14,6 @@ export class FirebaseConfig {
         throw new Error('❌ FIREBASE_SERVICE_ACCOUNT_JSON no está configurada');
       }
 
-      console.log('📋 Contenido de FIREBASE_SERVICE_ACCOUNT_JSON:', serviceAccountJson.substring(0, 100));
-
-
       const serviceAccount = JSON.parse(serviceAccountJson);
 
       this.instance = admin.initializeApp({
