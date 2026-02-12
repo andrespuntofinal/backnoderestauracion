@@ -8,7 +8,6 @@ interface Environment {
   port: number;
   mongodbUrl: string;
   secretKey: string;
-  firebaseServiceAccountPath: string;
   firebaseProjectId: string;
   apiRateLimitWindowMs: number;
   apiRateLimitMax: number;
@@ -19,7 +18,6 @@ const getEnvironment = (): Environment => {
   const port = parseInt(process.env.PORT || '3001', 10);
   const mongodbUrl = process.env.MONGODB_CNN;
   const secretKey = process.env.SECRETPRIVATEKEY;
-  const firebaseServiceAccountPath = process.env.FIREBASE_SERVICE_ACCOUNT_PATH;
   const firebaseProjectId = process.env.FIREBASE_PROJECT_ID;
   const apiRateLimitWindowMs = parseInt(process.env.API_RATE_LIMIT_WINDOW_MS || '60000', 10);
   const apiRateLimitMax = parseInt(process.env.API_RATE_LIMIT_MAX || '100', 10);
@@ -32,9 +30,6 @@ const getEnvironment = (): Environment => {
   if (!secretKey) {
     throw new Error('❌ SECRETPRIVATEKEY no está definida en .env');
   }
-  if (!firebaseServiceAccountPath) {
-    throw new Error('❌ FIREBASE_SERVICE_ACCOUNT_PATH no está definida en .env');
-  }
   if (!firebaseProjectId) {
     throw new Error('❌ FIREBASE_PROJECT_ID no está definida en .env');
   }
@@ -43,7 +38,6 @@ const getEnvironment = (): Environment => {
     port,
     mongodbUrl,
     secretKey,
-    firebaseServiceAccountPath,
     firebaseProjectId,
     apiRateLimitWindowMs,
     apiRateLimitMax,

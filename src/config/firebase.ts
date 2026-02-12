@@ -8,21 +8,16 @@ export class FirebaseConfig {
 
   static initialize(): admin.app.App {
     try {
-      const serviceAccountPath = path.resolve(
-        process.cwd(),
-        env.firebaseServiceAccountPath
-      );
+      const serviceAccountJson = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
 
-      // Validar que el archivo exista
-      if (!fs.existsSync(serviceAccountPath)) {
-        throw new Error(
-          `❌ Archivo serviceAccountKey.json no encontrado en: ${serviceAccountPath}`
-        );
+      if (!serviceAccountJson) {
+        throw new Error('❌ FIREBASE_SERVICE_ACCOUNT_JSON no está configurada');
       }
 
-      const serviceAccount = JSON.parse(
-        fs.readFileSync(serviceAccountPath, 'utf8')
-      );
+      console.log('📋 Contenido de FIREBASE_SERVICE_ACCOUNT_JSON:', serviceAccountJson.substring(0, 100));
+
+
+      const serviceAccount = JSON.parse(serviceAccountJson);
 
       this.instance = admin.initializeApp({
         credential: admin.credential.cert(serviceAccount),
