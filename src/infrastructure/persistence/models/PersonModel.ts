@@ -42,7 +42,6 @@ const personSchema = new Schema<IPersonDocument>(
     },
     email: {
       type: String,
-      required: true,
       lowercase: true,
       trim: true,
     },
@@ -58,19 +57,15 @@ const personSchema = new Schema<IPersonDocument>(
     },
     birthDate: {
       type: String,
-      required: true,
     },
     phone: {
       type: String,
-      required: true,
     },
     address: {
       type: String,
-      required: true,
     },
     neighborhood: {
       type: String,
-      required: true,
     },
     ministryId: {
       type: Schema.Types.ObjectId,

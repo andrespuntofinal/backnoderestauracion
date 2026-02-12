@@ -17,6 +17,15 @@ userRoutes.get(
 );
 
 /**
+ * GET /api/users/email/:email
+ */
+userRoutes.get(
+  '/email/:email',
+  authMiddleware,
+  (req, res) => userController.getByEmail(req, res)
+);
+
+/**
  * GET /api/users/:id
  */
 userRoutes.get(
@@ -25,14 +34,7 @@ userRoutes.get(
   (req, res) => userController.getById(req, res)
 );
 
-/**
- * GET /api/users/email/:email
- */
-userRoutes.get(
-  '/email/:email',
-  authMiddleware,
-  (req, res) => userController.getByEmail(req, res)
-);
+
 
 /**
  * POST /api/users

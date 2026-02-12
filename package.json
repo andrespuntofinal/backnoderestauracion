@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "ts-node src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js",
+    "build": "npm run build",
+    "start": "npm start",
     "lint": "eslint src --ext .ts"
   },
   "dependencies": {

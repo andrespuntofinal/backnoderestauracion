@@ -1,7 +1,13 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import { env } from './config';
-import { userRoutes, personRoutes, ministryRoutes, transactionRoutes } from './presentation/routes';
+import { 
+  userRoutes, 
+  personRoutes, 
+  ministryRoutes,
+  categoryRoutes,
+  transactionRoutes 
+} from './presentation/routes';
 
 export const app: Express = express();
 
@@ -24,7 +30,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 // ==================== RUTAS ====================
 
 /**
- * Ruta de salud
+ * Health check
  */
 app.get('/health', (req: Request, res: Response) => {
   res.json({
@@ -40,12 +46,13 @@ app.get('/health', (req: Request, res: Response) => {
 app.use('/api/users', userRoutes);
 app.use('/api/persons', personRoutes);
 app.use('/api/ministries', ministryRoutes);
+app.use('/api/categories', categoryRoutes);
 app.use('/api/transactions', transactionRoutes);
 
 // ==================== MANEJO DE ERRORES ====================
 
 /**
- * Rutas no encontradas
+ * Rutas no encontradas (404)
  */
 app.use((req: Request, res: Response) => {
   res.status(404).json({
@@ -57,7 +64,7 @@ app.use((req: Request, res: Response) => {
 });
 
 /**
- * Manejador global de errores
+ * Manejador global de errores (500)
  */
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   console.error('❌ Error no controlado:', error.message);

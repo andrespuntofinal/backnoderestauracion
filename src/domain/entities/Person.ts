@@ -3,13 +3,13 @@ export class Person {
   identification: string; // Unique
   idType: 'CC' | 'TI' | 'PAS' | 'CE'; // Tipo de identificación
   fullName: string;
-  email: string;
+  email?: string;
   sex: 'Masculino' | 'Femenino';
   civilStatus: 'Soltero' | 'Casado' | 'Divorciado' | 'Viudo' | 'Unión Libre';
   birthDate: string; // YYYY-MM-DD
-  phone: string;
-  address: string;
-  neighborhood: string;
+  phone?: string;
+  address?: string;
+  neighborhood?: string;
   ministryId?: string; // Reference a Ministry
   membershipType: 'Miembro' | 'Visitante' | 'Simpatizante';
   membershipDate: string; // YYYY-MM-DD
@@ -25,13 +25,13 @@ export class Person {
     identification: string;
     idType: 'CC' | 'TI' | 'PAS' | 'CE';
     fullName: string;
-    email: string;
+    email?: string;
     sex: 'Masculino' | 'Femenino';
     civilStatus: 'Soltero' | 'Casado' | 'Divorciado' | 'Viudo' | 'Unión Libre';
     birthDate: string;
-    phone: string;
-    address: string;
-    neighborhood: string;
+    phone?: string;
+    address?: string;
+    neighborhood?: string;
     ministryId?: string;
     membershipType: 'Miembro' | 'Visitante' | 'Simpatizante';
     membershipDate: string;
@@ -71,7 +71,7 @@ export class Person {
 
   isValidEmail(): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(this.email);
+    return this.email ? emailRegex.test(this.email) : false;
   }
 
   isValidIdentification(): boolean {
