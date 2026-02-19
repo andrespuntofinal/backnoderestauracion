@@ -73,10 +73,10 @@ export class PersonController {
     try {
       const dto = new CreatePersonDTO(req.body);
 
-      if (!dto.identification || !dto.fullName || !dto.email) {
+      if (!dto.identification || !dto.fullName) {
         res.status(400).json({
           success: false,
-          error: 'Identification, fullName y email son requeridos',
+          error: 'Identification y fullName  son requeridos',
         });
         return;
       }
