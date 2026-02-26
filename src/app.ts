@@ -6,7 +6,8 @@ import {
   personRoutes, 
   ministryRoutes,
   categoryRoutes,
-  transactionRoutes 
+  transactionRoutes,
+  fileRoutes
 } from './presentation/routes';
 
 export const app: Express = express();
@@ -48,7 +49,7 @@ app.use('/api/persons', personRoutes);
 app.use('/api/ministries', ministryRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/transactions', transactionRoutes);
-
+app.use('/api/files', fileRoutes);
 // ==================== MANEJO DE ERRORES ====================
 
 /**
