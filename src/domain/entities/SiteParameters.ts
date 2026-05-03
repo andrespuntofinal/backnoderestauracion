@@ -3,6 +3,7 @@ export interface Event {
   title: string;
   date: string; // YYYY-MM-DD
   imageUrl: string;
+  
 }
 
 export interface ContactInfo {
