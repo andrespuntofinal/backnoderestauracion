@@ -4,6 +4,7 @@ import {
   MinistryRepository,
   CategoryRepository,
   TransactionRepository,
+  SiteParametersRepository,
 } from '../persistence/repositories';
 
 /**
@@ -20,6 +21,7 @@ export class Container {
   private ministryRepository: MinistryRepository;
   private categoryRepository: CategoryRepository;
   private transactionRepository: TransactionRepository;
+  private siteParametersRepository: SiteParametersRepository;
 
   private constructor() {
     // Inicializar repositorios
@@ -28,6 +30,7 @@ export class Container {
     this.ministryRepository = new MinistryRepository();
     this.categoryRepository = new CategoryRepository();
     this.transactionRepository = new TransactionRepository();
+    this.siteParametersRepository = new SiteParametersRepository();
   }
 
   /**
@@ -61,5 +64,9 @@ export class Container {
 
   public getTransactionRepository(): TransactionRepository {
     return this.transactionRepository;
+  }
+
+  public getSiteParametersRepository(): SiteParametersRepository {
+    return this.siteParametersRepository;
   }
 }

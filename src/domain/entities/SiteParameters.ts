@@ -15,6 +15,26 @@ export interface ContactInfo {
   youtube?: string;
 }
 
+export interface SiteTheme {
+  primaryColor: string;
+  primaryHover: string;
+  secondaryColor: string;
+  accentColor: string;
+  cardBg: string;
+  cardBorder: string;
+  tableHeaderBg: string;
+  tableHeaderText: string;
+  sidebarBg: string;
+  activeNavBg: string;
+  activeNavText: string;
+  sidebarHoverBg: string;
+  sidebarTextColor: string;
+  formHeaderBg: string;
+  formLabelColor: string;
+  formInputText: string;
+  formTitleColor: string;
+}
+
 export class SiteParameters {
   id?: string;
   heroImages: string[]; // URLs o Base64
@@ -23,6 +43,7 @@ export class SiteParameters {
   vision: string;
   events: Event[];
   contact: ContactInfo;
+  theme?: SiteTheme;
   updatedAt?: Date;
 
   constructor(data: {
@@ -33,6 +54,7 @@ export class SiteParameters {
     vision: string;
     events: Event[];
     contact: ContactInfo;
+    theme?: SiteTheme;
     updatedAt?: Date;
   }) {
     this.id = data.id;
@@ -42,6 +64,7 @@ export class SiteParameters {
     this.vision = data.vision;
     this.events = data.events;
     this.contact = data.contact;
+    this.theme = data.theme;
     this.updatedAt = data.updatedAt;
   }
 

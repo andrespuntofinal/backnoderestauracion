@@ -7,7 +7,8 @@ import {
   ministryRoutes,
   categoryRoutes,
   transactionRoutes,
-  fileRoutes
+  fileRoutes,
+  siteParametersRoutes
 } from './presentation/routes';
 
 export const app: Express = express();
@@ -50,6 +51,7 @@ app.use('/api/ministries', ministryRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/transactions', transactionRoutes);
 app.use('/api/files', fileRoutes);
+app.use('/api/site-params', siteParametersRoutes);
 // ==================== MANEJO DE ERRORES ====================
 
 /**
